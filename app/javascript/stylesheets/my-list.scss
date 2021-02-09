@@ -1,0 +1,262 @@
+.my-list {
+  background-color: #a3dcca;
+  border-radius: 10px;
+  padding: 15px 25px;
+
+  &__header {
+    background-color: #fff;
+    border-radius: 10px;
+    font-size: 1.3em;
+    margin-bottom: 20px;
+    padding: 10px 30px;
+  }
+
+  &__header-destroy-button {
+    background-color: #dc3545;
+    border-radius: 5px;
+    float: right;
+    height: 40px;
+    width: 40px;
+
+    img {
+      height: 40px;
+      padding: 5px;
+      width: 40px;
+    }
+  }
+
+  &__header-main {
+    overflow: hidden;
+  }
+
+  &__header-user-image {
+    float: left;
+    height: 100%;
+    padding: 0 10px 0 0;
+  }
+
+  &__header-user-image-icon {
+    background-color: #ccc;
+    background-image: url('../images/no_image_icon.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: solid 1px #ccc;
+    border-radius: 50%;
+    height: 50px;
+    user-select: none;
+    width: 50px;
+  }
+
+  &__header_title {
+    display: block;
+    white-space: nowrap;
+  }
+
+  &__header-title-text {
+    display: block;
+    font-size: 1.2em;
+    font-weight: bold;
+    word-wrap: break-word;
+    $element: #{&};
+
+    &--edit {
+      @extend .form-control, #{$element};
+
+      margin-bottom: 10px;
+      max-width: 100%;
+    }
+  }
+
+  &__header-edit-button {
+    background-color: #3c6;
+    border-radius: 5px;
+    float: right;
+    height: 40px;
+    margin-right: 5px;
+    width: 40px;
+
+    img {
+      height: 40px;
+      padding: 5px;
+      width: 40px;
+    }
+  }
+
+  &__header-description {
+    color: #464646;
+    font-size: 1.2em;
+    white-space: normal;
+    width: auto;
+    word-wrap: break-word;
+    $element: #{&};
+
+    &--edit {
+      @extend .form-control, #{$element};
+
+      margin-bottom: 10px;
+      width: 100%;
+    }
+  }
+
+  &__header-description p {
+    margin-bottom: 0;
+  }
+
+  &__header-info {
+    color: #6a6a6a;
+    font-size: 0.7em;
+    overflow: hidden;
+    padding: 3px 0;
+    white-space: nowrap;
+  }
+
+  &__header-user {
+    display: inline-block;
+    max-width: 30%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+
+  &__header-category {
+    background-color: #caffe6;
+    border-radius: 10px;
+    display: inline-block;
+    max-width: 30%;
+    overflow: hidden;
+    padding: 2px 8px;
+    vertical-align: middle;
+    white-space: nowrap;
+    $element: #{&};
+
+    &--edit {
+      @extend .form-control, #{$element};
+
+      margin-right: 20px;
+      min-width: 10em;
+      width: 40%;
+    }
+  }
+
+  &__header-submit {
+    @extend .btn, .btn-success;
+
+    display: inline-block;
+    min-width: 4em;
+    width: 20%;
+  }
+
+  &__header-updated-date {
+    display: inline-block;
+    max-width: 30%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+
+  &__notes {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 10px 15px;
+  }
+
+  &__note {
+    border-top: 1px solid #333;
+    cursor: grab;
+    padding: 10px 0;
+
+    &:first-of-type {
+      border-top: none;
+    }
+  }
+
+  &__note-main {
+    overflow: hidden;
+    padding: 0 15px;
+  }
+
+  &__note-user-image {
+    float: left;
+    height: 100%;
+    padding: 5px 0;
+  }
+
+  &__note-user-image-icon {
+    background-color: #ccc;
+    background-image: url('../images/no_image_icon.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: solid 1px #ccc;
+    border-radius: 50%;
+    height: 40px;
+    user-select: none;
+    width: 40px;
+  }
+
+  &__note-destroy-button {
+    background-color: #dc3545;
+    border-radius: 5px;
+    float: right;
+    height: 32px;
+    width: 32px;
+
+    img {
+      height: 32px;
+      padding: 5px;
+      width: 32px;
+    }
+  }
+
+  &__note-title {
+    font-size: 1.2em;
+    font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    a {
+      color: #000;
+    }
+  }
+
+  &__note-info {
+    color: #6a6a6a;
+    font-size: 0.8em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &__note-category {
+    background-color: #caffe6;
+    border-radius: 10px;
+    display: inline-block;
+    max-width: 30%;
+    overflow: hidden;
+    padding: 2px 8px;
+    white-space: nowrap;
+  }
+
+  &__note-user {
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &__note-tags {
+    color: #6a6a6a;
+    font-size: 0.75em;
+  }
+
+  &__note-tag {
+    background-color: #ddd;
+    border-radius: 13px;
+    display: inline-block;
+    padding: 1px 10px;
+  }
+}

@@ -1,0 +1,7 @@
+.single-container
+  %h1
+    = t('.title')
+
+  = link_to t('.tags'), admin_tags_path, class: 'btn btn-outline-dark'
+  = link_to t('.categories'), admin_categories_path, class: 'btn btn-outline-dark'
+  = link_to t('.notes'), admin_notes_path, class: 'btn btn-outline-dark'

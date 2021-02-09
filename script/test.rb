@@ -1,0 +1,5 @@
+require 'profile'
+
+
+User.first
+

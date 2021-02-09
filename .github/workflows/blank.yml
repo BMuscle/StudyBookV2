@@ -1,0 +1,105 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on: [push]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  rubocop:
+    runs-on: ubuntu-latest
+    container:
+      image: ruby:2.6.6
+    steps:
+      - uses: actions/checkout@v2
+      - name: Rubocop Linter Action
+        uses: andrewmcodes/rubocop-linter-action@v3.2.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Cache bundle directory
+        uses: actions/cache@v1
+        with:
+          path: vendor/bundle
+          key: ${{ runner.os }}-gem-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-gem-
+      - name: Prepare bundler
+        run: |
+          gem install bundler
+          bundle config path vendor/bundle
+          bundle install --jobs 4 --retry 3
+      - name: run rubocop
+        run: bundle exec rubocop
+  run_spec:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: groonga/pgroonga:latest
+        env:
+          POSTGRES_HOST_AUTH_METHOD: trust
+          LANG: ja_JP.utf8"
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: myapp_test
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:5432
+      influxdb:
+        image: influxdb:1.8
+        env:
+          INFLUXDB_DB: study_book_test_db
+          INFLUXDB_USER: study
+          INFLUXDB_USER_PASSWORD: studybook
+          INFLUXDB_ADMIN_USER: root
+          INFLUXDB_ADMIN_PASSWORD: admin
+          INFLUXDB_HTTP_FLUX_ENABLED: 'true'
+          INFLUXDB_HTTP_AUTH_ENABLED: 'true'
+          INFLUXDB_RESPONTING_DISABLED: 'true'
+          INFLUXDB_DATA_MAX_SERIES_PER_DATABASE: 0
+          INFLUXDB_DATA_MAX_VALUES_PER_TAG: 0
+        ports:
+          - 8086:8086
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1.51.1
+      with:
+        ruby-version: 2.6.6
+    - name: Cache gems
+      uses: actions/cache@v1
+      with:
+        path: vendor/bundle
+        key: ${{ runner.os }}-gem-${{ hashFiles('**/Gemfile.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-gem-
+    - name: Cache node modules
+      uses: actions/cache@v1
+      with:
+        path: node_modules
+        key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-node-
+    - name: Install dependencies
+      run: |
+        gem install bundler
+        bundle install --path vendor/bundle --without production
+        yarn install
+    - name: setup DB
+      env:
+        RAILS_ENV: test
+        DATABASE_URL: postgresql://postgres@localhost:5432/postgres?encoding=utf8&pool=5&timeout=5000
+      run: |
+        bundle exec rails db:schema:load
+    - name: Run tests
+      env:
+        RAILS_ENV: test
+        STUDY_BOOK_INFLUXDB_HOST: http://localhost:8086
+        DATABASE_URL: postgresql://postgres@localhost:5432/postgres?encoding=utf8&pool=5&timeout=5000
+      run: |
+        bundle exec rspec

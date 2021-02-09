@@ -1,0 +1,17 @@
+ja:
+  activerecord:
+    attributes:
+      tag:
+        name: タグ名
+      category:
+        name: 'カテゴリー名'
+      note:
+        title: タイトル
+        body: 内容
+      my_list:
+        title: タイトル
+        description: 説明
+    models:
+      tag: タグ
+      category: 'カテゴリー'
+      user: ユーザー

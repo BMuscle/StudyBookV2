@@ -1,0 +1,131 @@
+.my-lists {
+  background-color: #fff;
+  padding: 0 10px;
+
+  &__hr {
+    &--top {
+      margin-top: -5px;
+    }
+  }
+
+  &__my-list {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 5px 0;
+
+    &:first-of-type {
+      border-top: none;
+    }
+  }
+
+  &__my-list-user-image {
+    float: left;
+    height: 100%;
+    padding: 13px 10px;
+  }
+
+  &__my-list-user-image-icon {
+    background-color: #ccc;
+    background-image: url('../images/no_image_icon.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: solid 1px #ccc;
+    border-radius: 50%;
+    height: 50px;
+    user-select: none;
+    width: 50px;
+  }
+
+  &__my-list-no-description {
+    margin-top: 10px;
+  }
+
+  &__my-list-main {
+    overflow: hidden;
+  }
+
+  &__my-list-delete-button {
+    background-color: #dc3545;
+    border-radius: 5px;
+    float: right;
+    height: 32px;
+    width: 32px;
+
+    img {
+      padding: 5px;
+      width: 32px;
+    }
+  }
+
+  &__my-list-title {
+    font-size: 1.2em;
+    font-weight: bold;
+    overflow: hidden;
+    padding-left: 8px;
+    padding-right: 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &__my-list-link {
+    color: #000;
+
+    &:hover {
+      color: #000;
+    }
+  }
+
+  &__my-list-description {
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 0.8em;
+    overflow: hidden;
+    padding-left: 8px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    span {
+      color: #000;
+      font-weight: 700;
+    }
+  }
+
+  &__my-list-sub {
+    align-items: center;
+    color: #6a6a6a;
+    display: flex;
+    font-size: 0.8em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &__my-list-category {
+    background-color: #caffe6;
+    border-radius: 10px;
+    display: inline-block;
+    margin-right: 3px;
+    max-width: 30%;
+    overflow: hidden;
+    padding: 2px 8px;
+    white-space: nowrap;
+  }
+
+  &__my-list-user {
+    display: inline-block;
+    margin-right: 3px;
+    max-width: 30%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &__my-list-updated-at {
+    display: inline-block;
+    margin-right: 3px;
+    max-width: 30%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}

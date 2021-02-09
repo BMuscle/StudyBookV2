@@ -1,0 +1,5 @@
+.single-container
+  %h1
+    = t '.title'
+
+  = render partial: '/admin/categories/shared/form', locals: {category: @category, path: admin_category_path}

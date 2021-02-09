@@ -1,0 +1,198 @@
+.user-notes {
+  background-color: rgba(0, 0, 0, 0) !important;
+  padding: 0 !important;
+
+  .notes-body {
+    background-color: #fff !important;
+    padding: 0 10px;
+  }
+}
+
+.notes {
+  background-color: #fff;
+  padding: 0 10px;
+
+  &__hr {
+    &--top {
+      margin-top: -5px;
+    }
+  }
+
+  &__note {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 4px 0;
+
+    &:first-of-type {
+      border-top: none;
+    }
+  }
+
+  &__note-user-image {
+    float: left;
+    height: 100%;
+    padding: 20px 10px;
+  }
+
+  &__note-user-image-icon {
+    background-color: #ccc;
+    background-image: url('../images/no_image_icon.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: solid 1px #ccc;
+    border-radius: 50%;
+    height: 50px;
+    user-select: none;
+    width: 50px;
+  }
+
+  &__note-main {
+    padding: 0 15px;
+  }
+
+  &__note-deleet-button {
+    @extend .btn, .btn-outline-dark;
+
+    float: right;
+    width: 58px;
+  }
+
+  &__note-title {
+    font-size: 1.2em;
+    font-weight: bold;
+    overflow: hidden;
+    padding-left: 8px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &__note-link {
+    color: #000;
+
+    &:hover {
+      color: #000;
+    }
+  }
+
+  &__note-description {
+    color: #464646;
+    font-size: 0.9em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: auto;
+  }
+
+  &__note-sub {
+    align-items: center;
+    color: #6a6a6a;
+    display: flex;
+    font-size: 0.8em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &__note-category {
+    background-color: #caffe6;
+    border-radius: 10px;
+    display: inline-block;
+    margin-right: 3px;
+    max-width: 30%;
+    overflow: hidden;
+    padding: 2px 8px;
+    white-space: nowrap;
+  }
+
+  &__note-user {
+    display: inline-block;
+    margin-right: 3px;
+    max-width: 30%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &__note-updated-at {
+    display: inline-block;
+    margin-right: 3px;
+    max-width: 30%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &__note-file-path {
+    display: inline-block;
+    margin-right: 3px;
+    max-width: 40%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &__note-tags {
+    color: #6a6a6a;
+    font-size: 0.75em;
+    margin-top: 2px;
+    padding: 0 15px;
+  }
+
+  &__note-tag {
+    background-color: #ddd;
+    border-radius: 13px;
+    display: inline-block;
+    padding: 1px 10px;
+  }
+
+  &_note-body {
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 0.8em;
+    overflow: hidden;
+    padding-left: 8px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    span {
+      color: #000;
+      font-weight: 700;
+    }
+  }
+
+  &__add-my-list {
+    background-color: #d7fffd;
+    border-radius: 5px;
+    display: block;
+    float: right;
+    margin-left: 15px;
+    padding: 5px;
+
+    img {
+      display: inline;
+      height: 23px;
+      padding-bottom: 2px;
+      vertical-align: middle;
+    }
+  }
+
+  &__user-note-sub {
+    align-items: center;
+    color: #6a6a6a;
+    display: flex;
+    font-size: 0.8em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &__user-note-tags {
+    color: #6a6a6a;
+    font-size: 0.75em;
+    margin-top: 2px;
+  }
+
+  &__note-no-tags {
+    margin-top: 10px;
+  }
+}

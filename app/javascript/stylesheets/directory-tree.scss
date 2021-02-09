@@ -1,0 +1,63 @@
+.directory-tree {
+  background-color: #fff;
+  border-radius: 10px;
+  font-size: 0.9em;
+  margin-bottom: 20px;
+  max-height: 40vh;
+  overflow: auto;
+  padding: 15px 10px;
+  text-align: left;
+
+  .list {
+    align-items: center;
+    display: flex;
+
+    .content {
+      color: #6a6a6a;
+      cursor: pointer;
+      padding-left: 7px;
+
+      &:hover {
+        color: #000;
+        font-weight: 600;
+      }
+    }
+
+    .active-content {
+      background-color: #6a6a6a;
+      border-radius: 10px;
+      color: #fff;
+      font-weight: 600;
+      padding: 2px 5px;
+
+      &:hover {
+        color: #fff;
+        font-weight: 600;
+      }
+    }
+  }
+
+  .leaf {
+    padding-left: 7px;
+  }
+
+  img {
+    height: 21px;
+    margin-left: -10px;
+    position: relative;
+
+    &.close {
+      transform: rotate(-90deg);
+      transform-origin: 50% 50%;
+    }
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 15px;
+
+    li {
+      margin-top: 5px;
+    }
+  }
+}
